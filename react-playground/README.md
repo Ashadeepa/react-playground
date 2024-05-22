@@ -67,4 +67,3 @@ To modify the fonts in the application, first, add a new font to the `public/ind
 
 To modify the logo in the application, make changes in the `src/layout/Header.js` and `src/layout/Sidebar.js` files.
 
-
