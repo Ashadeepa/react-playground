@@ -21,15 +21,18 @@ const CoinMarkets = () => {
   const theme = useTheme();
 
   const [coins, setCoins] = useState([]);
-  // TODO - Search setter & getter function for search term
+  // Search Component
+  const [search, setSearch] = useState('');
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
 
-  // TODO - Search handler function
+  // Search handler
+  const handleChange = (e) => {
+    setSearch(e.target.value);
+  };
 
-  // TODO - Filter coins by search term
   const filteredCoins = coins.filter((coin) =>
-    coin.name.toLowerCase()
+    coin.name.toLowerCase().includes(search.toLowerCase())
   );
 
   const handleChangePage = (event, newPage) => {
@@ -76,7 +79,7 @@ const CoinMarkets = () => {
                   }}
                   placeholder='Search a cryptocurrency'
                   variant='outlined'
-                  // TODO - onChange handler
+                  onChange={handleChange}
                 />
               </Box>
             </CardContent>
